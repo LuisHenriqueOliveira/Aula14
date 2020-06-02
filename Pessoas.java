@@ -1,42 +1,55 @@
-public class Pessoas{
-   private String nome;
-   private int idade;
-   private String sexo;
-   private boolean fk_faz_esporte;
-	
-   public Pessoas(String nome, int idade, String sexo, boolean fk_faz_esporte){
-      this.nome = nome;
-      this.idade = idade;
-      this.sexo = sexo;
-      this.fk_faz_esporte = true;
-   }   
+public class Pessoa{
+
+   private String nome,endereco,sexo,esporte;
+   private boolean vegetarian;
+   public int idade;
+   
+   public Pessoa(){
+      this.nome="nome";
+      this.idade=0;
+      this.sexo="M";
+      this.endereco="endereco";
+      this.vegetarian= false;
+      this.esporte="esporte";
+   }
+   
    public String getNome(){
       return nome;
-   }
-   public int getIdade(){
-      return idade;
    }
    public String getSexo(){
       return sexo;
    }
-   public boolean getFk_faz_esporte(){
-      return fk_faz_esporte;
+   public String getEndereco(){
+      return endereco;
    }
-      
-   public void setNome(String nome){
-      this.nome = nome;
+   public String getEsporte(){
+      return esporte;
+   }
+   public boolean getVegetarian(){
+      return vegetarian;
+   }
+   public int getIdade(){
+      return idade;
+   }
+   
+   public void setNome( String nome){
+      this.nome=nome;
    }
    public void setIdade(int idade){
-      this.idade = idade;
+      this.idade=idade;
    }
    public void setSexo(String sexo){
-      this.sexo = sexo;
+      this.sexo=sexo;
    }
-   public void setFK_faz_esporte(boolean fk_faz_esporte){
-      this.fk_faz_esporte = fk_faz_esporte;
+   public void setEndereco(String endereco){
+      this.endereco=endereco;
    }
-            
+   public void setVegetarian(boolean vegetarian){
+      this.vegetarian=vegetarian;
+   }
+   public void setEsporte(String esporte){
+      this.esporte=esporte;
+   }
+   
    
 }
-   
-
