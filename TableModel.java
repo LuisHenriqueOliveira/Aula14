@@ -1,41 +1,51 @@
+import javax.swing.*;
 import javax.swing.table.*;
-import java.awt.GridLayout;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import java.util.ArrayList;
+public class TableModel extends AbstractTableModel{
+    
+   public ArrayList<Pessoa> lista;
+   public String[] colunas;
+   
+   public String getColumnName(int column){
+      return colunas[column];
+   }
+   
 
-public class TableModel extends AbstractTableModel {
 
-   public TableModel (String [] colunas) {      
-      this.colunas = colunas;
+   public TableModel(ArrayList lista,String[] colunas){
+      this.lista=lista;
+      this.colunas=colunas;
    }
-   private Object [][] dados;
-   private String [] colunas;
-
-   public int getRowCount() {
-      return dados.length;
+      
+   public int getRowCount(){
+      return lista.size();
    }
-
-   public int getColumnCount() {
-      return colunas.length;
+   public int getColumnCount(){
+      return colunas.length;   
    }
-
-   public Object getValueAt(int rowIndex, int columnIndex) {
-      return dados[rowIndex][columnIndex];
+   public Object getValueAt(int rowIndex,int columnIndex){
+      if(columnIndex==0){
+         return lista.get(rowIndex).getNome();
+         
+      }else if(columnIndex==1){
+         return lista.get(rowIndex).getIdade();
+         
+      }else if(columnIndex==2){
+         return lista.get(rowIndex).getSexo();
+         
+      }else if(columnIndex==3){
+         return lista.get(rowIndex).getEndereco();
+         
+      }else if(columnIndex==4){
+         return lista.get(rowIndex).getVegetarian();
+         
+      }else{
+         return lista.get(rowIndex).getEsporte();
+         
+      }   
    }
-   public Class getColumnClass(int columnIndex) {
-      return getValueAt(0, columnIndex).getClass();
+   public Class getColumnClass(int columnIndex){
+      return getValueAt(0,columnIndex).getClass();
    }
-   public String getColumnName(int column) {
-      return this.colunas [column];
-   }
-
-   public boolean isCellEditable(int rowIndex, int columnIndex) {
-      return true;
-   }
-   public void setValueAt(Object value, int row, int col) {
-      dados[row][col] = value;
-      fireTableCellUpdated(row, col);
-   }
+   
 }
